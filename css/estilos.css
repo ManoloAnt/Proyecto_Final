@@ -94,3 +94,14 @@ textarea {
     color: white;
     font-weight: bold;
 }
+
+body{
+    background-image: url(../img/fondo.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+footer {
+    margin-top: 38.8%;
+}

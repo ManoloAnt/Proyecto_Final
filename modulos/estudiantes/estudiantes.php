@@ -48,7 +48,7 @@ $result = $conexion->DatosEstudiantes();
                     <div class="card-body">
                         <?php
                         $mensajes = array(
-                            0 => "No se pudo realizar la acción, comunicate con el administrador",
+                            0 => "",
                             1 => "Se elimino correctamente el estudiante",
                             2 => "Se creo correctamente el estudiante",
                             3 => "Se actualizo correctamente el estudiante",

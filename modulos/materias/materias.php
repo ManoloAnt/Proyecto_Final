@@ -31,7 +31,7 @@ $result = $conexion->DatosMaterias();
                 <img src="../../img/Instituto.jpeg" alt="">
             </li>
             <li><a href="../estudiantes/estudiantes.php"> Estudiantes </a></li>
-            <li><a href="../modulos/materias/materias.php"> Materias </a></li>
+            <li><a href="../materias/materias.php"> Materias </a></li>
             <li><a href="../../index.php"> Inicio </a></li>
         </ul>
     </nav>
@@ -47,7 +47,7 @@ $result = $conexion->DatosMaterias();
                     <div class="card-body">
                         <?php
                         $mensajes = array(
-                            0 => "No se pudo realizar la acción, comunicate con el administrador",
+                            0 => "",
                             1 => "Se elimino correctamente la materia",
                             2 => "Se creo correctamente la materia",
                             3 => "Se actualizo correctamente la materia"

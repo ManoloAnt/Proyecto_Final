@@ -25,71 +25,7 @@
     <!-- Fin del menu de la pagina -->
 
     <!-- Inicio Contenedor -->
-    <div class="container">
-        <header>
-            <h1> Personajes de Rick and Morty </h1>
-        </header>
-
-        <section class="section-flex">
-            <article class="character">
-                <header>
-                    <h2> Rick Sanchez </h2>
-                </header>
-                <img src="./img/Rick.jpeg">
-                <div class="info-character">
-                    <p> <b>Genero:</b> Masculino </p>
-                    <p> <b>Especie:</b> Humano </p>
-                </div>
-            </article>
-
-            <article class="character">
-                <header>
-                    <h2> Rick Sanchez </h2>
-                </header>
-                <img src="./img/Rick.jpeg">
-                <div class="info-character">
-                    <p> <b>Genero:</b> Masculino </p>
-                    <p> <b>Especie:</b> Humano </p>
-                </div>
-            </article>
-
-            <article class="character">
-                <header>
-                    <h2> Rick Sanchez </h2>
-                </header>
-                <img src="./img/Rick.jpeg">
-                <div class="info-character">
-                    <p> <b>Genero:</b> Masculino </p>
-                    <p> <b>Especie:</b> Humano </p>
-                </div>
-            </article>
-
-            <article class="character">
-                <header>
-                    <h2> Rick Sanchez </h2>
-                </header>
-                <img src="./img/Rick.jpeg">
-                <div class="info-character">
-                    <p> <b>Genero:</b> Masculino </p>
-                    <p> <b>Especie:</b> Humano </p>
-                </div>
-            </article>
-
-            <article class="character">
-                <header>
-                    <h2> Rick Sanchez </h2>
-                </header>
-                <img src="./img/Rick.jpeg">
-                <div class="info-character">
-                    <p> <b>Genero:</b> Masculino </p>
-                    <p> <b>Especie:</b> Humano </p>
-                </div>
-            </article>
-
-
-        </section>
-
-    </div>
+        
     <!-- Fin Contenedor -->
 
     <footer>
