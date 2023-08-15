@@ -1,0 +1,96 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+h1, 
+h2 {
+    text-align: center;
+    font-family: 'Krona One', 'sans-serif';
+}
+
+.container {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.section-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.character {
+    width: 25%;
+    margin: 3%;
+    border: 2px grey solid;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.character img {
+    width: 80%;
+    border-radius: 4%;
+}
+
+.info-character {
+    text-align: justify;
+    padding: 3%;
+}
+
+h2 {
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    height: 80%;
+    text-align: center;
+}
+
+footer p{
+    padding: 2%;
+}
+
+/* CSS del Formulario */
+form {
+    margin-left: 20%;
+    margin-top: 5%;
+    text-align: left;
+    width: 80%;
+}
+
+.elemnt-form {
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.label {
+   width: 20%; 
+   float: left; 
+}
+
+.elemnt-form select,
+input,
+textarea {
+    width: 50%;
+    height: 30px;
+}
+
+.btn-div {
+    text-align: center;
+    width: 80%;
+    margin-bottom: 15%;
+}
+
+.btn-div button {
+    background-color: blue;
+    border: 5px blue solid;
+    border-radius: 10px;
+    height: 30px;
+    color: white;
+    font-weight: bold;
+}
