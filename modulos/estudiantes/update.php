@@ -15,8 +15,8 @@ if (isset($_POST['telefono']))
     $telefono = $_POST['telefono'];
 if (isset($_POST['identificacion']))
     $identificacion = $_POST['identificacion'];
-if (isset($_POST['tipo_de_sangre']))
-    $tipoSangre = $_POST['tipo_de_sangre'];
+if (isset($_POST['identificacion']))
+    $tipoSangre = $_POST['identificacion'];
 if (isset($_POST['altura']))
     $altura = $_POST['altura'];
 if (isset($_POST['genero']))

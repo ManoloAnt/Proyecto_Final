@@ -92,6 +92,9 @@ $result = $conexion->DatosEstudiantes();
                                                 <td>" . $row['nombres'] . " " . $row['apellidos'] . "</td>
                                                 <td>" . $row['email'] . "</td>
                                                 <td>" . $row['telefono'] . "</td>
+                                                <td>" . $row['tipo de sangre'] . "</td>
+                                                <td>" . $row['altura'] . "</td>
+                                                <td>" . $row['genero'] . "</td>
                                                 <td>
                                                     <a href='" . ROOT . "/modulos/notas/notas.php?id=" . $row['id'] . "' class='btn btn-success'>Notas</a>
                                                     <a href='editEstudiante.php?id=" . $row['id'] . "' class='btn btn-primary'>Modificar</a>

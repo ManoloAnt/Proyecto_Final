@@ -15,7 +15,7 @@ foreach ($result->fetchAll(PDO::FETCH_OBJ) as $r) {
     $estud_apellidos = $r->apellidos;
     $estud_email = $r->email;
     $estud_telefono = $r->telefono;
-    $estud_tipoSangre = $r->tipo_de_sangre;
+    $estud_tipoSangre = $r->identificacion;
     $estud_altura = $r->altura;
     $estud_genero = $r->genero;
 }
@@ -78,17 +78,20 @@ foreach ($result->fetchAll(PDO::FETCH_OBJ) as $r) {
                             </div>
 
                             <label for="tipo_de_sangre">Tipo de sangre</label>
-                                <input type="text" class="form-control" id="tipo_de_sangre" name="tipo_de_sangre" required>
+                                <input type="text" class="form-control" id="tipo_de_sangre" name="tipo_de_sangre"
+                                value="<?= $estud_tipoSangre ?>" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="altura">Altura</label>
-                                <input type="text" class="form-control" id="altura" name="altura" required>
+                                <input type="text" class="form-control" id="altura" name="altura"
+                                value="<?= $estud_altura ?>" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="genero">Genero</label>
-                                <input type="text" class="form-control" id="genero" name="genero" required>
+                                <input type="text" class="form-control" id="genero" name="genero"
+                                value="<?= $estud_genero ?>" required>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Actualizar</button>

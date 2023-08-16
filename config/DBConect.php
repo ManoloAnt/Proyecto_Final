@@ -26,7 +26,7 @@ class Database
     public function DatosEstudiantes()
     {
         $conexion = Database::getInstance();
-        $sql = "SELECT id,identificacion,nombres,apellidos,email,telefono,tipo_de_sangre,altura,genero from estudiantes";
+        $sql = "SELECT id,identificacion,nombres,apellidos,email,telefono,identificacion,altura,genero from estudiantes";
         $result = $conexion->db->prepare($sql);
         $result->execute();
         return $result;
@@ -37,7 +37,7 @@ class Database
 
         try {
             $conexion = Database::getInstance();
-            $result = $conexion->db->prepare("INSERT INTO estudiantes (identificacion,nombres,apellidos,email,telefono,tipo_de_sangre,altura,genero) VALUES (:identificacion,:nombres,:apellidos,:email,:telefono,:tipo_de_sangre,:altura,:genero)");
+            $result = $conexion->db->prepare("INSERT INTO estudiantes (nombres,identificacion,apellidos,email,telefono,identificacion,altura,genero) VALUES (:identificacion,:nombres,:apellidos,:email,:telefono,:identificacion,:altura,:genero)");
             $result->execute(
                 array(
                     ':identificacion' => $identificacion,
@@ -45,7 +45,7 @@ class Database
                     ':apellidos' => $apellidos,
                     ':email' => $email,
                     ':telefono' => $telefono,
-                    ':tipo_de_sangre' => $tipoSangre,
+                    ':identificacion' => $tipoSangre,
                     ':altura' => $altura,
                     ':genero' => $genero
                 )
@@ -59,7 +59,7 @@ class Database
     public function editEstudiante($id)
     {
         $conexion = Database::getInstance();
-        $sql = "SELECT id,identificacion,nombres,apellidos,email,telefono,tipo_de_sangre,altura,genero from estudiantes where id=:id";
+        $sql = "SELECT id,identificacion,nombres,apellidos,email,telefono,identificacion,altura,genero from estudiantes where id=:id";
         $result = $conexion->db->prepare($sql);
         $params = array("id" => $id);
         $result->execute($params);
@@ -71,7 +71,7 @@ class Database
 
         try {
             $conexion = Database::getInstance();
-            $result = $conexion->db->prepare("UPDATE estudiantes set nombres=:nombres,apellidos=:apellidos,email=:email,telefono=:telefono,identificacion=:identificacion,tipo_de_sangre=:tipo_de_sangre,altura=:altura,genero=:genero where id=:id ");
+            $result = $conexion->db->prepare("UPDATE estudiantes set nombres=:nombres,apellidos=:apellidos,email=:email,telefono=:telefono,identificacion=:identificacion,identificacion=:identificacion,altura=:altura,genero=:genero where id=:id ");
             $result->execute(
                 array(
                     ':nombres' => $nombres,
@@ -79,7 +79,7 @@ class Database
                     ':email' => $email,
                     ':telefono' => $telefono,
                     ':identificacion' => $identificacion,
-                    ':tipo_de_sangre' => $tipoSangre,
+                    ':identificacion' => $tipoSangre,
                     ':altura' => $altura,
                     ':genero' => $genero,
                     ':id' => $id
