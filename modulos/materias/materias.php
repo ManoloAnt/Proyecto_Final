@@ -72,7 +72,9 @@ $result = $conexion->DatosMaterias();
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Herramientas</th>
+                                    <th scope="col">Docente</th>
+                                    <th scope="col">Numero horas</th>
+                                    <th scope="col">Creditos</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,6 +84,9 @@ $result = $conexion->DatosMaterias();
                                     echo "<tr>
                                                 <td>" . $row['id'] . "</td>
                                                 <td>" . $row['nombre'] . "</td>
+                                                <td>" . $row['docente'] . "</td>
+                                                <td>" . $row['numero_horas'] . "</td>
+                                                <td>" . $row['creditos'] . "</td>
                                                 <td>
                                                     <a href='editMateria.php?id=" . $row['id'] . "' class='btn btn-primary'>Modificar</a>
                                                     <a href='delete.php?id=" . $row['id'] . "' class='btn btn-danger'>Eliminar</a>
