@@ -12,8 +12,6 @@ class Database
         $this->db = new PDO(self::$dns, self::$user, self::$pass);
     }
 
-    // Se crea la instancia de la clase Database.
-    // Se instancia la clase para iniciarla y poder acceder a las propiedades.
     public static function getInstance()
     {
         if (!isset(self::$instance)) {
@@ -26,7 +24,7 @@ class Database
     public function DatosEstudiantes()
     {
         $conexion = Database::getInstance();
-        $sql = "SELECT id,identificacion,nombres,apellidos,email,telefono,identificacion,altura,genero from estudiantes";
+        $sql = "SELECT id,identificacion,nombres,apellidos,email,telefono,tipo_de_sangre,altura,genero from estudiantes";
         $result = $conexion->db->prepare($sql);
         $result->execute();
         return $result;
@@ -34,27 +32,27 @@ class Database
 
     public function CrearEstudiante($nombres, $apellidos, $email, $telefono, $identificacion, $tipoSangre, $altura, $genero)
     {
-
         try {
             $conexion = Database::getInstance();
-            $result = $conexion->db->prepare("INSERT INTO estudiantes (nombres,identificacion,apellidos,email,telefono,identificacion,altura,genero) VALUES (:identificacion,:nombres,:apellidos,:email,:telefono,:identificacion,:altura,:genero)");
+            $result = $conexion->db->prepare("INSERT INTO estudiantes (nombres, apellidos, email, telefono, identificacion, tipo_de_sangre, altura, genero) VALUES (:nombres, :apellidos, :email, :telefono, :identificacion, :tipoSangre, :altura, :genero)");
             $result->execute(
                 array(
-                    ':identificacion' => $identificacion,
                     ':nombres' => $nombres,
                     ':apellidos' => $apellidos,
                     ':email' => $email,
                     ':telefono' => $telefono,
-                    ':identificacion' => $tipoSangre,
+                    ':identificacion' => $identificacion,
+                    ':tipoSangre' => $tipoSangre, // Corrección aquí
                     ':altura' => $altura,
                     ':genero' => $genero
                 )
             );
-            return "2";
+            return $result->rowCount() > 0 ? "2" : "0"; // Verificación del éxito
         } catch (PDOException $e) {
             return "0";
         }
     }
+
 
     public function editEstudiante($id)
     {
@@ -71,7 +69,7 @@ class Database
 
         try {
             $conexion = Database::getInstance();
-            $result = $conexion->db->prepare("UPDATE estudiantes set nombres=:nombres,apellidos=:apellidos,email=:email,telefono=:telefono,identificacion=:identificacion,identificacion=:identificacion,altura=:altura,genero=:genero where id=:id ");
+            $result = $conexion->db->prepare("UPDATE estudiantes set nombres=:nombres,apellidos=:apellidos,email=:email,telefono=:telefono,identificacion=:identificacion,identificacion=:identificacion,tipo_de_sangre=:tipo_de_sangre,altura=:altura,genero=:genero where id=:id ");
             $result->execute(
                 array(
                     ':nombres' => $nombres,
@@ -79,7 +77,7 @@ class Database
                     ':email' => $email,
                     ':telefono' => $telefono,
                     ':identificacion' => $identificacion,
-                    ':identificacion' => $tipoSangre,
+                    ':tipo_de_sangre' => $tipoSangre,
                     ':altura' => $altura,
                     ':genero' => $genero,
                     ':id' => $id
@@ -108,37 +106,27 @@ class Database
     public function DatosMaterias()
     {
         $conexion = Database::getInstance();
-        $sql = "SELECT id,nombre from materias";
+        $sql = "SELECT id, nombre, horario, docente, numero_horas, creditos from materias"; // Ajuste de las columnas
         $result = $conexion->db->prepare($sql);
         $result->execute();
         return $result;
     }
 
-    public function EliminarMateria($id)
+    public function CrearMateria($nombre, $horario, $docente, $numeroHoras, $creditos)
     {
         try {
             $conexion = Database::getInstance();
-            $result = $conexion->db->prepare("DELETE FROM materias WHERE id=?");
-            $result->execute(array($id));
-
-            return "1";
-        } catch (PDOException $e) {
-            return "0";
-        }
-    }
-
-    public function CrearMateria($nombre)
-    {
-
-        try {
-            $conexion = Database::getInstance();
-            $result = $conexion->db->prepare("INSERT INTO materias (nombre) VALUES (:nombre)");
+            $result = $conexion->db->prepare("INSERT INTO materias (nombre, horario, docente, numero_horas, creditos) VALUES (:nombre, :horario, :docente, :numeroHoras, :creditos)"); // Ajuste de las columnas
             $result->execute(
                 array(
-                    ':nombre' => $nombre
+                    ':nombre' => $nombre,
+                    ':horario' => $horario,
+                    ':docente' => $docente,
+                    ':numeroHoras' => $numeroHoras, // Corrección aquí
+                    ':creditos' => $creditos // Corrección aquí
                 )
             );
-            return "2";
+            return $result->rowCount() > 0 ? "2" : "0"; // Verificación del éxito
         } catch (PDOException $e) {
             return "0";
         }
@@ -147,22 +135,25 @@ class Database
     public function editMateria($id)
     {
         $conexion = Database::getInstance();
-        $sql = "SELECT id,nombre from materias where id=:id";
+        $sql = "SELECT id, nombre, horario, docente, numero_horas, creditos from materias where id=:id"; // Ajuste de las columnas
         $result = $conexion->db->prepare($sql);
         $params = array("id" => $id);
         $result->execute($params);
         return $result;
     }
 
-    public function updateMateria($nombre, $id)
+    public function updateMateria($nombre, $horario, $docente, $numeroHoras, $creditos, $id)
     {
-
         try {
             $conexion = Database::getInstance();
-            $result = $conexion->db->prepare("UPDATE materias set nombre=:nombre where id=:id ");
+            $result = $conexion->db->prepare("UPDATE materias set nombre=:nombre, horario=:horario, docente=:docente, numero_horas=:numeroHoras, creditos=:creditos where id=:id "); // Ajuste de las columnas
             $result->execute(
                 array(
                     ':nombre' => $nombre,
+                    ':horario' => $horario,
+                    ':docente' => $docente,
+                    ':numeroHoras' => $numeroHoras, // Corrección aquí
+                    ':creditos' => $creditos, // Corrección aquí
                     ':id' => $id
                 )
             );

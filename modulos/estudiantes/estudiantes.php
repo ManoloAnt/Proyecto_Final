@@ -69,42 +69,41 @@ $result = $conexion->DatosEstudiantes();
                         ?>
 
 
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Identificacion</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Telefono</th>
-                                    <th scope="col">Tipo de sangre</th>
-                                    <th scope="col">Altura</th>
-                                    <th scope="col">Genero</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-
-                                foreach ($result as $row) {
-                                    echo "<tr>
-                                                <td>" . $row['id'] . "</td>
-                                                <td>" . $row['identificacion'] . "</td>
-                                                <td>" . $row['nombres'] . " " . $row['apellidos'] . "</td>
-                                                <td>" . $row['email'] . "</td>
-                                                <td>" . $row['telefono'] . "</td>
-                                                <td>" . $row['tipo de sangre'] . "</td>
-                                                <td>" . $row['altura'] . "</td>
-                                                <td>" . $row['genero'] . "</td>
-                                                <td>
-                                                    <a href='" . ROOT . "/modulos/notas/notas.php?id=" . $row['id'] . "' class='btn btn-success'>Notas</a>
-                                                    <a href='editEstudiante.php?id=" . $row['id'] . "' class='btn btn-primary'>Modificar</a>
-                                                    <a href='delete.php?id=" . $row['id'] . "' class='btn btn-danger'>Eliminar</a>
-                                                </td>
-                                            </tr>";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Identificacion</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Tipo de sangre</th>
+            <th scope="col">Altura</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($result as $row) {
+            echo "<tr>
+                <td>" . $row['id'] . "</td>
+                <td>" . $row['identificacion'] . "</td>
+                <td style='width: 150px;'>" . $row['nombres'] . " " . $row['apellidos'] . "</td>
+                <td>" . $row['email'] . "</td>
+                <td>" . $row['telefono'] . "</td>
+                <td>" . $row['tipo_de_sangre'] . "</td>
+                <td>" . $row['altura'] . "</td>
+                <td>" . $row['genero'] . "</td>
+                <td>
+                    <a href='editEstudiante.php?id=" . $row['id'] . "' class='btn btn-primary'>Modificar</a>
+                    <a href='delete.php?id=" . $row['id'] . "' class='btn btn-danger'>Eliminar</a>
+                </td>
+            </tr>";
+        }
+        ?>
+    </tbody>
+</table>
                     </div>
                 </div>
             </div>
