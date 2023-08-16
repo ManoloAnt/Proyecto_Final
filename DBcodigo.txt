@@ -1,0 +1,26 @@
+CREATE TABLE estudiantes(
+    nombres VARCHAR(20) NOT NULL,
+    apellidos VARCHAR(20) NOT NULL,
+    email VARCHAR(30) NOT NULL,
+    telefono INT(15) NOT NULL,
+    identificacion CHAR(15) NOT NULL,
+    tipo_de_sangre VARCHAR(5) NOT NULL,
+    altura INT(3) NOT NULL,
+    genero varchar(10) NOT NULL,
+    id INT(10) NOT NULL
+);
+
+CREATE TABLE materias (
+    nombre varchar (15) NOT NULL,
+    horario varchar (15) NOT NULL,
+    docente varchar (15) NOT NULL,
+    numero_horas int (15) DEFAULT NULL,
+    creditos int (15) DEFAULT NULL,
+    id INT(10)
+);
+
+ALTER TABLE estudiantes ADD PRIMARY KEY (id);
+ALTER TABLE materias ADD PRIMARY KEY (id);
+
+ALTER TABLE estudiantes MODIFY id INT(10) NOT NULL AUTO_INCREMENT; 
+ALTER TABLE materias MODIFY id INT(10) NOT NULL AUTO_INCREMENT; 
