@@ -69,7 +69,7 @@ include_once("../../config/Config.php");
                                 <input type="text" class="form-control" id="genero" name="genero" required>
                             </div>
 
-                            <input type="button" class="btn btn-primary" onclick="ValidarEstudiantes()" value='Crear'>
+                            <input type="button" class="btn btn-primary" onclick="ValidarEstudiante()" value='Crear'>
                         </form>
                     </div>
                 </div>

@@ -32,7 +32,7 @@ class Database
         return $result;
     }
 
-    public function CrearEstudiante($identificacion, $nombres, $apellidos, $email, $telefono, $tipoSangre, $altura, $genero)
+    public function CrearEstudiante($nombres, $apellidos, $email, $telefono, $identificacion, $tipoSangre, $altura, $genero)
     {
 
         try {

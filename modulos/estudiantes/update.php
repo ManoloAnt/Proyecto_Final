@@ -23,7 +23,7 @@ if (isset($_POST['genero']))
     $genero = $_POST['genero'];
 
 $conexion = new Database;
-$result = $conexion->updateEstudiante($id, $nombres, $apellidos, $email, $telefono, $identificacion, $tipoSangre, $altura, $genero);
+$result = $conexion->updateEstudiante($id,$nombres,$apellidos,$email,$telefono,$identificacion,$tipoSangre,$altura,$genero);
 
 header("Location: " . ROOT . "modulos/estudiantes/estudiantes.php?mensaje=" . $result);
 
